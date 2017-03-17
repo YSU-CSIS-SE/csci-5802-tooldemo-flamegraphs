@@ -26,6 +26,24 @@ If much of your program's work is done by external libraries, it's worth ensurin
 
 Some libraries have common patterns where they recommend you use them in a specific way, these include JSON parsers, string functions, network/communication libraries.
 
+## Language
+
+There is no catch-all tool for flame graphs yet. There is typically one tool for each language. Some languages are easier to profile than others.
+
+The easiest languages at this time to profile are:
+
+* Anything on the JVM
+	* Java
+	* Scala
+	* Clojure
+	* Groovy
+	* Kotlin
+	* JRuby
+	* Jython
+* Go
+* PHP
+* 
+
 # Who are Flame Graphs not for?
 
 ## Program Types
@@ -43,3 +61,6 @@ These are actually quite simple to read.
 // Insert picture
 
 // Talk about picture
+
+
+# Test Systems
