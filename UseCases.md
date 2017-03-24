@@ -2,7 +2,7 @@
 
 # Who are Flame Graphs for?
 
-Flame graphs are for you if you're doing something at scale - website, server, program, whatever. If something is done at a large enough scale, the time spent optimizing and finding inefficiencies will pay dividends in the future at scale too.
+Flame graphs are for you if you're doing something at scale - website, server, program, whatever. If something is done at a large enough scale, the time spent optimizing and finding inefficiencies will pay dividends in the future at scale too. A program could also simply be very computationally intensive - even if it isn't doing it with typical scaling.
 
 ## How complete should your code be?
 
