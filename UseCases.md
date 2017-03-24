@@ -44,7 +44,9 @@ The easiest languages at this time to profile are:
 	* Jython
 * Go
 * PHP
-* 
+* Python
+* NodeJS
+
 
 # Who are Flame Graphs not for?
 
@@ -81,7 +83,51 @@ The systems we could have profiled here include:
 
 ## Systems we can easily profile
 
-* Minecraft servers
-	* Written in Java
-* Docker
-	* Written in Go
+### Program Choosing Criteria
+
+The obvious candidates are any web company's server backend, but those are not open source, so we are targeting anything that meets the follow criteria:
+
+* Easy to profile language
+* Scalable services
+	* Web servers and anything with a continuous data stream
+* Continuously running programs
+	* We can get more data points to generate the flame graph
+	* Even if it is a GUI program, for the purposes of education it will work nicely
+
+### Program List
+
+* [Minecraft servers]()
+	* Java
+	* Program at scale
+	* Continuously running service
+	* Streaming data input
+* [Docker]()
+	* Go
+	* Program at scale (with its userbase)
+	* Continuously Running
+* [iTrace]()
+	* Java
+	* Continuously Running
+	* Program at scale (eventually)
+	* Could also include profiling Eclipse itself
+* [NASA World Wind](https://github.com/NASAWorldWind/WorldWindJava)
+	* Java
+	* Continuously Running
+	* Will give us interesting GUI oriented results
+* [Atom](https://github.com/atom/atom)
+	* NodeJS
+	* Scale through user base
+* [Eclipse Che](https://github.com/eclipse/che/)
+	* Java
+	* Can be done at scale since it is a web server
+* [Google TensorFlow ML Models](https://github.com/tensorflow/models)
+	* Python
+	* Not continuous running
+	* Scalre through expensive computations
+* [Syncthing](https://github.com/syncthing/syncthing/)
+	* Go
+	* Scalable by syncing more files
+* [Meld](https://github.com/GNOME/meld)
+	* Python
+	* Optimizations will increase program speed and developer productivity (scalable)
+	* Large files with significant diff (scale)
