@@ -96,16 +96,16 @@ The obvious candidates are any web company's server backend, but those are not o
 
 ### Program List
 
-* [Minecraft servers]()
+* [Minecraft servers](https://hub.spigotmc.org/jenkins/job/BuildTools/)
 	* Java
 	* Program at scale
 	* Continuously running service
 	* Streaming data input
-* [Docker]()
+* [Docker](https://www.docker.com/)
 	* Go
 	* Program at scale (with its userbase)
 	* Continuously Running
-* [iTrace]()
+* [iTrace](http://www.traceytechnologies.com/products.html)
 	* Java
 	* Continuously Running
 	* Program at scale (eventually)
