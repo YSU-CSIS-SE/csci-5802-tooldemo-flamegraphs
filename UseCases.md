@@ -62,7 +62,7 @@ If running your web service costs an inconsequential annual amount, it's likely 
 
 These are actually quite simple to read.
 
-// Insert picture
+![mySQL](https://github.com/YSU-CSIS-SE/csci-5802-tooldemo-flamegraphs/blob/master/flamegraphmysql.png)
 
 // Talk about picture
 
