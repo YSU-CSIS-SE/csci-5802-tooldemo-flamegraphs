@@ -62,7 +62,7 @@ Small services - optimization has a smaller return when not done at scale.
 ## Costs
 If running your web service costs an inconsequential annual amount, it's likely not worth your time to profile the service for inefficiencies.
 
-# What are flame graphs? 
+# How are flame graphs useful to software engineers?
 
 ## How should a developer use flame graphs?
 
@@ -127,7 +127,7 @@ Note that we will not be profiling all of these, but rather those that are easie
 	* Go
 	* Program at scale (with its userbase)
 	* Continuously Running
-* [iTrace](http://www.traceytechnologies.com/products.html)
+* [iTrace](https://github.com/YsuSERESL/iTrace)
 	* Java
 	* Continuously Running
 	* Program at scale (eventually)
