@@ -64,7 +64,9 @@ These are actually quite simple to read.
 
 ![mySQL](https://github.com/YSU-CSIS-SE/csci-5802-tooldemo-flamegraphs/blob/master/flamegraphmysql.png)
 
-// Talk about picture
+The above image shows MySQL codepaths consuming CPU cycles. The x-axis represents stack profile population, and the y-axis represents stack depth. Each section is a stack frame, with wider sections representing stacks that are more often present. At the top, the edges represent what is on CPU, and beneath them are its ancestors. It is important to note that color is not signifigant to the interpretation of the graph, and neither is the sorting order (they are sorted alphabetically).
+
+This example is from [Brendan Gregg's website](http://www.brendangregg.com/index.html), the creator of Flame Graphs.
 
 
 # Test Systems
