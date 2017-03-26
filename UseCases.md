@@ -77,9 +77,9 @@ These would all be great canidates for profiling - they have streaming data, per
 
 The systems we could have profiled here include:
 
-* SETI@home
-* Folding@home
-* Bitcoin/other distributed block chains
+* [SETI@home](http://setiathome.ssl.berkeley.edu/)
+* [Folding@home](https://folding.stanford.edu/)
+* [Bitcoin](https://bitcoin.org/en/)
 
 ## Systems we can easily profile
 
