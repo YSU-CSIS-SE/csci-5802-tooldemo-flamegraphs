@@ -24,9 +24,9 @@ If much of your program's work is done by external libraries, it's worth ensurin
 
 ### Common Examples
 
-Some libraries have common patterns where they recommend you use them in a specific way, these include JSON parsers, serialization libraries, string functions, network/communication libraries.
+Some libraries have common patterns where they recommend you use them in a specific way, these include JSON parsers, serialization libraries, string functions, and network/communication libraries.
 
-A frequent pattern that appears in inefficiencies is not treating a library object as a resource. Let's suppose you need to get some data, do some work on it, then send the result over the network. The network communication here requires serializing the data. A frequent but inefficient pattern is to construct a new serializer object everytime to accomplish this. You can make many serializers, across instances, threads, and method calls that do mostly the same thing. A better much more efficient solution is to make a static serializer resource.
+A frequent pattern that appears in inefficiencies is not treating a library object as a resource. Let's suppose you need to get some data, do some work on it, then send the result over the network. The network communication here requires serializing the data. A frequent but inefficient pattern is to construct a new serializer object everytime to accomplish this. You can make many serializers across instances, threads, and method calls that do mostly the same thing. A better much more efficient solution is to make a static serializer resource.
 
 ## Language
 
