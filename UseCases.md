@@ -68,7 +68,7 @@ These are actually quite simple to read.
 
 ![mySQL](./flamegraphmysql.png)
 
-The above image shows MySQL codepaths consuming CPU cycles. The x-axis represents stack profile population, and the y-axis represents stack depth. Each section is a stack frame, with wider sections representing stacks that are more often present. At the top, the edges represent what is on CPU, and beneath them are its ancestors. It is important to note that color is not signifigant to the interpretation of the graph, and neither is the sorting order (they are sorted alphabetically).
+The above image shows MySQL codepaths consuming CPU cycles. The x-axis represents stack profile population (percentage of CPU time for that method), and the y-axis represents stack depth. Each section is a stack frame, with wider sections representing stacks that are more often present. At the top, the edges represent what is on CPU, and beneath them are its ancestors (exactly like a program stack trace). It is important to note that color is not signifigant to the interpretation of the graph, and neither is the sorting order (they are sorted alphabetically). This means that the left to right order of methods does not imply execution order.
 
 This example is from [Brendan Gregg's website](http://www.brendangregg.com/index.html), the creator of Flame Graphs.
 
@@ -100,7 +100,9 @@ The obvious candidates are any web company's server backend, but those are not o
 	* We can get more data points to generate the flame graph
 	* Even if it is a GUI program, for the purposes of education it will work nicely
 
-### Program List
+### Program Candidate List
+
+Note that we will not be profiling all of these, but rather those that are easiest to set up and build from source.
 
 * [Minecraft servers](https://hub.spigotmc.org/jenkins/job/BuildTools/)
 	* Java
