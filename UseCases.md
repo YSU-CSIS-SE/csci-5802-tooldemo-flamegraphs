@@ -32,7 +32,7 @@ A frequent pattern that appears in inefficiencies is not treating a library obje
 
 There is no catch-all tool for flame graphs yet. There is typically one tool for one (or a small handful of) language. Some languages are easier to profile than others.
 
-The easiest languages at this time to profile are:
+The **easiest languages** at this time to profile are:
 
 * Anything on the JVM
 	* Java
@@ -46,6 +46,10 @@ The easiest languages at this time to profile are:
 * PHP
 * Python
 * NodeJS
+* Haskell
+
+
+The languages with the seemingly **best tools** as of now are Go (developed by Uber) and Java (developed by Netflix).  
 
 
 # Who are Flame Graphs not for?
@@ -62,7 +66,7 @@ If running your web service costs an inconsequential annual amount, it's likely 
 
 These are actually quite simple to read.
 
-![mySQL](https://github.com/YSU-CSIS-SE/csci-5802-tooldemo-flamegraphs/blob/master/flamegraphmysql.png)
+![mySQL](./flamegraphmysql.png)
 
 The above image shows MySQL codepaths consuming CPU cycles. The x-axis represents stack profile population, and the y-axis represents stack depth. Each section is a stack frame, with wider sections representing stacks that are more often present. At the top, the edges represent what is on CPU, and beneath them are its ancestors. It is important to note that color is not signifigant to the interpretation of the graph, and neither is the sorting order (they are sorted alphabetically).
 
