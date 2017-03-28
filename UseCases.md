@@ -2,11 +2,11 @@
 
 # Who are Flame Graphs for?
 
-Flame graphs are for you if you're doing something at scale - website, server, program, whatever. If something is done at a large enough scale, the time spent optimizing and finding inefficiencies will pay dividends in the future at scale too. A program could also simply be very computationally intensive - even if it isn't doing it with typical scaling.
+Flame graphs are for you if you're doing something at scale - website, server, program, whatever. If something is done at a large enough scale, the time spent optimizing and finding inefficiencies will pay dividends in the future at scale too. A program would also benefit from flame graph profiling it it simply is very computationally intensive - even if it isn't done in a typical distributed web based scaling fashion.
 
 ## How complete should your code be?
 
-Flame graphs are something you use after you've written the code and have it running. Flame Graphs are not very helpful during design, development, and testing.  By using profilers and tools like Flame Graphs you can develop with the philosophy "code now, optimize later". You never truly know what is actually an optimization during development anyways. Another benefit to this philosophy is if optimization is not a priority during development and design, then "clever" tricks to "speed-up" the program can stay out of the code.
+Flame graphs are something you use after you've written the code and have it running. Flame Graphs are not very helpful during design, development, and testing.  By using profilers and tools like Flame Graphs you can develop with the philosophy "code now, optimize later". You never truly know what is actually an optimization during development anyways. Another benefit to this philosophy is when optimization is not a priority during development and design, "clever" tricks to "speed-up" the program can stay out of the code (they often do little besides confuse future devs anyways).
 
 ## Environment - Large Infrastructure
 
@@ -16,25 +16,27 @@ Snap, Inc (Snapchat parent company) spends [$1 billion USD](https://www.fool.com
 
 Salesforce spends [$400 million USD](http://fortune.com/2016/05/25/salesforce-inks-major-aws-deal/) annually on AWS infrastructure.
 
-Basically, infrastructure, especially cloud infrastructure is not cheap since it effectively eliminates hardware and IT staff costs. Companies spend a lot on infrastructure, and small optimizations can have resounding effects.
+Other larger cloud users like Google, Amazon, and Netflix do not publish statistics on this.
 
-If a developer, with the right tools, can cause a 1% increase in efficiency, they can effectively save the company over $1 million a year. Not only will the developer probably see a nice bonus that year, but a change such as this will have a positive effect on the company's stock prices (which the developer probably has some of) - win win scenario here.
+Basically, infrastructure, especially cloud infrastructure is not cheap since it effectively eliminates hardware and IT staff costs. Companies spend a lot on infrastructure, and small optimizations can have resounding effects. Because optimizations = faster code = lighter server loads = smaller/fewer server instances.
 
-You might be thinking that a 1% efficiency increase across the board sounds far fetched though. Let's imagine there is a library (internal or external) used throughout the company on several services. A 10% optimization of this library could easily create a cascading effect across the board.
+If a developer, with the right tools, can cause a 1% increase in efficiency, they can potentially save the company $1 million a year. Not only will the developer probably see a nice bonus that year, but a change such as this will have a positive effect on the company's stock prices (which the developer probably has some of) - win win scenario here.
 
-In many unoptimized and unprofiled services, there are likely many low hanging optimization fruits giving 10%+ efficiency gains that likely take less than an hour of the developers time.
+You might be thinking that a 1% efficiency increase across the board sounds far fetched though. And maybe you're right. Let's imagine there is a library (internal or external) used throughout the company on several services. A 10% optimization of this library could easily create a cascading effect across the organization.
+
+In many unoptimized and unprofiled services, there are likely many low hanging optimization fruits giving 10%+ efficiency gains that likely take less than an hour of the developers time to discover and fix.
 
 ### So again, why profile and use flame graphs?
 
-After the long winded rant about infrastructure costs, profile and use flame graphs because it's easy and the results are worthwhile. Something that takes less than an hour can have implications far beyond the cost of time spent.
+After the long winded rant about infrastructure costs and optimization, you should profile and use flame graphs because it's easy and the results (savings) are worthwhile and significant. Something that takes less than an hour can have implications far beyond the cost of time spent.
 
 ## Program Types
 
-If you have a web server or service, batch processing system, speed critical system, or anything that has a lot of CPU time - you should try Flame Graph Profiling.
+If you have a web server or service, batch processing system, speed critical system, or anything that has a lot of CPU time, you should try Flame Graph Profiling.
 
 ## Code Patterns
 
-If much of your program's work is done by external libraries, it's worth ensuring you're using them efficiently. It's also not far fetched for a library to have an inefficiency that hasn't been revealed until now when the library is being used at the scale your program uses it at. If this is the case, find the libraries inefficiency, fix it, and submit a pull request.
+If much of your program's work is done by external libraries, it's worth ensuring you're using them efficiently. It's also not hard to imagine that a library might have an inefficiency that hasn't been revealed until now because the library is being used at a scale not before experienced. If this is the case, find the libraries inefficiency, fix it, and submit a pull request.
 
 ### Common Examples
 
@@ -44,7 +46,7 @@ A frequent pattern that appears in inefficiencies is not treating a library obje
 
 ## Language
 
-There is no catch-all tool for flame graphs yet. There is typically one tool for one (or a small handful of) language. Some languages are easier to profile than others.
+There is no catch-all tool for flame graphs yet. There is typically one tool for one (or a small handful of) language(s). Some languages are easier to profile than others.
 
 The **easiest languages** at this time to profile are:
 
@@ -63,7 +65,7 @@ The **easiest languages** at this time to profile are:
 * Haskell
 
 
-The languages with the seemingly **best tools** as of now are Go (developed by Uber) and Java (developed by Netflix).  
+The languages with the seemingly **best tools** as of now are Go (tool developed by Uber) and Java (tool developed by Netflix).  
 
 
 # Who are Flame Graphs not for?
@@ -88,7 +90,7 @@ If running your web service costs an inconsequential annual amount, it's likely 
 	* Different tool for each language so far
 4. View the results.
 	* Were your assumptions correct? Or are you spending most of your time constructing objects that could be static resources?
-	* Also compare different operations. For example, do you spend more time looking up an address than finding a route there? Also, do you spend more time constructing an object than you do using it (especially true of library generated objects?
+	* Also compare different operations. For example, do you spend more time looking up an address than finding a route there? Also, do you spend more time constructing an object than you do using it (especially true of library generated objects)?
 
 ## Reading Flame Graphs
 
@@ -96,7 +98,7 @@ These are actually quite simple to read.
 
 ![mySQL](./flamegraphmysql.png)
 
-The above image shows MySQL codepaths consuming CPU cycles. The x-axis represents stack profile population (percentage of CPU time for that method), and the y-axis represents stack depth. Each section is a stack frame, with wider sections representing stacks that are more often present. At the top, the edges represent what is on CPU, and beneath them are its ancestors (exactly like a program stack trace). It is important to note that color is not signifigant to the interpretation of the graph, and neither is the sorting order (they are sorted alphabetically). This means that the left to right order of methods does not imply execution order.
+The above image shows MySQL codepaths consuming CPU cycles. The x-axis represents stack profile population (percentage of CPU time for that method), and the y-axis represents stack depth. Each section is a stack frame, with wider sections representing stacks that are present more often. At the top, the edges represent what is on CPU, and beneath them are its ancestors (exactly like a program stack trace). It is important to note that color is not signifigant to the interpretation of the graph, and neither is the sorting order (they are sorted alphabetically). This means that the left to right order of methods does not imply execution order.
 
 This example is from [Brendan Gregg's website](http://www.brendangregg.com/index.html), the creator of Flame Graphs.
 
@@ -159,7 +161,7 @@ Note that we will not be profiling all of these, but rather those that are easie
 * [Google TensorFlow ML Models](https://github.com/tensorflow/models)
 	* Python
 	* Not continuous running
-	* Scalre through expensive computations
+	* Scale through expensive computations
 * [Syncthing](https://github.com/syncthing/syncthing/)
 	* Go
 	* Scalable by syncing more files
