@@ -10,9 +10,23 @@ Flame graphs are something you use after you've written the code and have it run
 
 ## Environment - Large Infrastructure
 
-// Insert stats about Google, AWS, etc infrastructure cost
+### How much are companies spending on infrastructure?
 
-// Talk about what a 10% gain in efficiency would do
+Snap, Inc (Snapchat parent company) spends [$1 billion USD](https://www.fool.com/investing/2017/02/09/snap-inc-is-also-spending-1-billion-with-amazon-aw.aspx) annually on AWS infrastructure
+
+Salesforce spends [$400 million USD](http://fortune.com/2016/05/25/salesforce-inks-major-aws-deal/) annually on AWS infrastructure.
+
+Basically, infrastructure, especially cloud infrastructure is not cheap since it effectively eliminates hardware and IT staff costs. Companies spend a lot on infrastructure, and small optimizations can have resounding effects.
+
+If a developer, with the right tools, can cause a 1% increase in efficiency, they can effectively save the company over $1 million a year. Not only will the developer probably see a nice bonus that year, but a change such as this will have a positive effect on the company's stock prices (which the developer probably has some of) - win win scenario here.
+
+You might be thinking that a 1% efficiency increase across the board sounds far fetched though. Let's imagine there is a library (internal or external) used throughout the company on several services. A 10% optimization of this library could easily create a cascading effect across the board.
+
+In many unoptimized and unprofiled services, there are likely many low hanging optimization fruits giving 10%+ efficiency gains that likely take less than an hour of the developers time.
+
+### So again, why profile and use flame graphs?
+
+After the long winded rant about infrastructure costs, profile and use flame graphs because it's easy and the results are worthwhile. Something that takes less than an hour can have implications far beyond the cost of time spent.
 
 ## Program Types
 
