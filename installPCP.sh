@@ -27,5 +27,29 @@ npm install
 sudo npm install --global gulp
 git fetch -t
 gulp
+if [ $? -neq 0 ]
+then
+    exit 1
+fi
 
 # change line 21 of vector/gulp/scripts.js to : git.exec({args : 'describe --always'}, function (err, stdout) {
+
+cd ..
+
+git clone --depth=1 https://github.com/jvm-profiling-tools/perf-map-agent
+cd perf-map-agent
+cmake .
+make
+
+# will create links to run scripts in <somedir>
+sudo bin/create-links-in /usr/local/bin/perf-map-agent
+
+cd ..
+
+mkdir -p vectorData
+cd vectorData
+wget https://dl.bintray.com/netflixoss/downloads/1.1.0/vector.tar.gz
+tar xvzf vector.tar.gz
+/usr/lib/pcp/bin/pmwebd -R . -p 8080 &
+
+cd ..
