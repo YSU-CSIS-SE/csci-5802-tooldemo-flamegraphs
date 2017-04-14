@@ -14,6 +14,26 @@ sudo service pmwebd start
 
 cd ..
 
+git clone --depth=1 https://github.com/jvm-profiling-tools/perf-map-agent
+cd perf-map-agent
+cmake .
+make
+
+# will create links to run scripts in <somedir>
+sudo bin/create-links-in /usr/local/bin/perf-map-agent
+
+cd ..
+
+currentDir=$(pwd)
+git clone --depth=1 https://github.com/spiermar/generic-pmda.git
+sudo cp ./generic-pmda /var/lib/pcp/pmdas/generic -r
+cd /var/lib/pcp/pmdas/generic
+sudo ./Install
+
+# change line 41 of vector/src/app/index.config.js to: 'enableCpuFlameGraph': true,
+
+cd $currentDir
+
 
 git clone --depth=1 https://github.com/Netflix/vector
 cd vector/
@@ -36,20 +56,11 @@ fi
 
 cd ..
 
-git clone --depth=1 https://github.com/jvm-profiling-tools/perf-map-agent
-cd perf-map-agent
-cmake .
-make
-
-# will create links to run scripts in <somedir>
-sudo bin/create-links-in /usr/local/bin/perf-map-agent
-
-cd ..
-
 mkdir -p vectorData
 cd vectorData
 wget https://dl.bintray.com/netflixoss/downloads/1.1.0/vector.tar.gz
 tar xvzf vector.tar.gz
+sudo service pmwebd stop
 /usr/lib/pcp/bin/pmwebd -R . -p 8080 &
 
 cd ..
