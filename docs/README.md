@@ -10,4 +10,4 @@ Flame graphs allow you to easily visualize different components in currently run
 
 # Video
 
-[Flame Graphs YouTube Video](https://m.youtube.com/watch?v=qtKimUSRmf8)
+[Flame Graphs YouTube Video](https://www.youtube.com/watch?v=lGc1VoXupPY&feature=youtu.be)
